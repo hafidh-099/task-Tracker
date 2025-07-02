@@ -46,7 +46,7 @@
     </style>
 </head>
 <body>
-    <%- include('./partials/headers.ejs') %>
+    <%- include('./partials/headers.ejs'),{mycookie}%>
     <form action="/edit" method="post">
         <h2>Edit Task</h2>
         <input type="hidden" name="id" value="<%= info.id %>">

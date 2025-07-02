@@ -43,7 +43,7 @@
     </style>
   </head>
   <body>
-    <%- include('./partials/headers.ejs') %>
+    <%- include('./partials/headers.ejs'),{mycookie} %>
     <div class="box">
       <% task.forEach((tas)=>{ %>
       <div class="value">
@@ -52,14 +52,16 @@
           <h3><%= tas.status %></h3>
           <h4 ><%= tas.created_at %></h4>
         </div>
-        <div class="btn">
-          <button style="background-color: rgb(42, 239, 42)">
-            <a href="/edit/<%= tas.id %>">Edit</a>
-          </button>
-          <button style="background-color: rgb(232, 62, 62)">
-            <a href="/delete/<%= tas.id %>">Delete</a>
-          </button>
-        </div>
+        <%if(mycookie.isLoggedIn==='true'){%>
+          <div class="btn">
+            <button style="background-color: rgb(42, 239, 42)">
+              <a href="/edit/<%= tas.id %>">Edit</a>
+            </button>
+            <button style="background-color: rgb(232, 62, 62)">
+              <a href="/delete/<%= tas.id %>">Delete</a>
+            </button>
+          </div>
+        <%}%>
       </div>
       <% }) %>
     </div>

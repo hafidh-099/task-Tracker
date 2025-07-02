@@ -2,14 +2,46 @@
   style="
     background: linear-gradient(rgb(100, 235, 100), rgb(43, 157, 59));
     width: 100%;
-    padding:10px;
-    margin-bottom:10px;
+    padding: 10px;
+    margin-bottom: 10px;
   "
 >
-  <nav>
-    <ul style="list-style: none; display: flex; flex-direction: row; gap: 10%;font-weight:800; text-decoration:none; justify-content:space-evenly;">
+  <nav style="display: flex; justify-content: space-between">
+    <ul
+      style="
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 10%;
+        font-weight: 800;
+        text-decoration: none;
+        justify-content: space-evenly;
+      "
+    >
+    <% if(mycookie.isLoggedIn==='true'){%>
+      <li><a href="/add">Addtask</a></li>
+    <%}else{%>
       <li><a href="/">Home</a></li>
-      <li><a href="/add">Add task</a></li>
+    <%}%>
+    </ul>
+    <ul
+      style="
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 10%;
+        font-weight: 800;
+        text-decoration: none;
+        justify-content: space-evenly;
+        margin-right: 50px;
+      "
+    >
+      <% if(mycookie.isLoggedIn==='true'){%>
+        <li><a href="/logout">logout</a></li>
+        <%} else{%>
+          <li><a href="/login">login</a></li>
+          <li><a href="/signup">Signup</a></li>
+      <% }%>
     </ul>
   </nav>
 </header>

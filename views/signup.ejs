@@ -47,14 +47,14 @@
 </head>
 <body>
     <%- include('./partials/headers.ejs'),{mycookie} %>
-    <form action="/add" method="post">
-        <h2>Add Task</h2>
-        <input id="name" type="text" placeholder="task" name="task">
-        <input id="name" type="text" placeholder="status" name="status" value="incomplete">
+    <form action="/post-signup" method="post" onsubmit="">
+        <h2>Sig up</h2>
+        <input  type="text" placeholder="username" name="username"> 
+        <input  type="password" placeholder="password" name="password">
         <div class="btn">
-            <button type="submit" >submit</button>
+            <button type="submit" >Register</button>
         </div>
-        
     </form>
 </body>
 </html>
+
