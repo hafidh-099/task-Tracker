@@ -3,13 +3,15 @@ const db = require('../utils/database');
 
 
 exports.getAllTask=async(req,res)=>{
-    const mycookie = req.cookies
+    // const mycookie = req.cookies
+    const mycookie = req.session
     const[task]=await db.execute('select * from tasks');
     res.render('index.ejs',{task,mycookie});
 }
 
 exports.getAddform =async(req,res)=>{
-    const mycookie = req.cookies
+    // const mycookie = req.cookies
+    const mycookie = req.session
     res.render('add.ejs',{mycookie})
 }
 exports.postAddData=async(req,res)=>{
@@ -18,7 +20,8 @@ exports.postAddData=async(req,res)=>{
     res.redirect('/')
 }
 exports.editData=async(req,res)=>{
-    const mycookie = req.cookies
+    // const mycookie = req.cookies
+    const mycookie = req.session
     const id = req.params.id;
     const [data] =await db.execute('select * from tasks where id=?',[id]);
     res.render('edit.ejs',{info:data[0],mycookie})

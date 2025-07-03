@@ -8,4 +8,6 @@ router.post('/post-signup',userAuthController.postSignUpData);
 router.get('/login',userAuthController.renderLogin);
 router.post('/login',userAuthController.postAndValidateUser);
 router.get('/logout',userAuthController.Logout);
+
+
 module.exports= router;
